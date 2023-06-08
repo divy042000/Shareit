@@ -1,0 +1,55 @@
+//{ Driver Code Starts
+//Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+//User function Template for C++
+
+class Solution
+{
+public:
+    string kthPermutation(int n, int k)
+    {
+        vector<int> array;
+        for(auto i=1;i<=n;i++)
+        {
+            array.push_back(i);
+        }
+        int a=0;
+        while(a<(k-1))
+        {
+            next_permutation(array.begin(),array.end());
+            a++;
+        }
+        
+        string s="";
+        for(auto i=0;i<array.size();i++)
+        {
+            s+=to_string(array[i]);
+        }
+        return s;
+    }
+};
+
+//{ Driver Code Starts.
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, k;
+        cin >> n >> k;
+        Solution ob;
+        string ans = ob.kthPermutation(n, k);
+        cout << ans;
+        cout << "\n";
+    }
+    return 0;
+}
+
+// } Driver Code Ends
